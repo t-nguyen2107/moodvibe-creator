@@ -1,0 +1,40 @@
+name: ✨ Feature Request
+description: Đề xuất tính năng mới
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả tính năng
+      placeholder: Mô tả chi tiết tính năng bạn muốn
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề cần giải quyết
+      placeholder: Tính năng này giải quyết vấn đề gì?
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Giải pháp đề xuất
+      placeholder: Bạn nghĩ nên implement như thế nào?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Độ ưu tiên
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Thông tin thêm
+      placeholder: Screenshots, references, etc.

@@ -1,0 +1,58 @@
+name: 🐛 Bug Report
+description: Báo cáo lỗi
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả lỗi
+      placeholder: Mô tả chi tiết lỗi gặp phải
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Các bước tái hiện
+      placeholder: |
+        1. Vào trang...
+        2. Click vào...
+        3. Thấy lỗi...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kết quả mong đợi
+      placeholder: Điều gì đáng lẽ phải xảy ra?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Kết quả thực tế
+      placeholder: Điều gì đã xảy ra?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs/Screenshots
+      placeholder: Paste logs hoặc đính kèm screenshots
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: Windows 11 / macOS / Linux
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v1.0.0
