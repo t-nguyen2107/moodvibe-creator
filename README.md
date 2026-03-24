@@ -56,7 +56,7 @@ docker-compose up -d
 
 **Access:**
 - 🌐 Frontend: http://localhost:3000
-- 📚 API Docs: http://localhost:8000/docs
+- 📚 API Docs: http://localhost:8899/docs
 
 ---
 

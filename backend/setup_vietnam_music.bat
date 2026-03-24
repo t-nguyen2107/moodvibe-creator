@@ -77,7 +77,7 @@ echo To test the integration:
 echo.
 echo 1. Start the backend server:
 echo    cd backend
-echo    python -m uvicorn app.main:app --reload --port 8899
+echo    python -m uvicorn app.main:app --reload --port 8000
 echo.
 echo 2. Test endpoints:
 echo    curl "http://localhost:8899/api/music/spotify/health"

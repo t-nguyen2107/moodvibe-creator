@@ -22,7 +22,7 @@
 
 4. **Access the application:**
    - 🌐 **Frontend:** http://localhost:3000
-   - 📚 **API Docs:** http://localhost:8000/docs
+   - 📚 **API Docs:** http://localhost:8899/docs
 
 ---
 
@@ -168,7 +168,7 @@ docker-compose up -d
 - **Image:** Python 3.12 slim
 - **Port:** 8000
 - **Includes:** FFmpeg, all Python dependencies
-- **Health Check:** http://localhost:8000/health
+- **Health Check:** http://localhost:8899/health
 
 ### Frontend Container
 - **Image:** Node 20 Alpine

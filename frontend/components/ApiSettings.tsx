@@ -118,11 +118,11 @@ export function ApiSettings() {
             type="text"
             value={tempUrl}
             onChange={(e) => setTempUrl(e.target.value)}
-            placeholder="http://localhost:8000"
+            placeholder="http://localhost:8899"
             className="input w-full"
           />
           <p className="text-xs text-muted-foreground mt-1.5">
-            Điền URL backend server (VD: http://localhost:8000)
+            Điền URL backend server (VD: http://localhost:8899)
           </p>
         </div>
 
@@ -170,7 +170,7 @@ export function ApiSettings() {
         <div className="mt-6 pt-6 border-t border-border">
           <p className="text-xs text-muted-foreground">
             <strong>Tip:</strong> Backend cần chạy ở URL này để search nhạc hoạt động.
-            Mặc định: <code>http://localhost:8000</code>
+            Mặc định: <code>http://localhost:8899</code>
           </p>
         </div>
       </div>

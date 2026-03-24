@@ -55,7 +55,7 @@ echo AI_PARSE_RATE_LIMIT=10
 
 echo Creating frontend/.env.local ...
 (
-echo NEXT_PUBLIC_API_URL=http://localhost:8000
+echo NEXT_PUBLIC_API_URL=http://localhost:8899
 ) > frontend\.env.local
 
 echo.

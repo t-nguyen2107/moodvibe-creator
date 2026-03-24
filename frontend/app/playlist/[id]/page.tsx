@@ -573,7 +573,7 @@ export default function PlaylistDetailPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 {audioPath && (
                   <a
-                    href={`http://localhost:8000/${audioPath}`}
+                    href={`http://localhost:8899/${audioPath}`}
                     download
                     className="
                       group
@@ -600,7 +600,7 @@ export default function PlaylistDetailPage() {
 
                 {videoPath && (
                   <a
-                    href={`http://localhost:8000/${videoPath}`}
+                    href={`http://localhost:8899/${videoPath}`}
                     download
                     className="
                       group

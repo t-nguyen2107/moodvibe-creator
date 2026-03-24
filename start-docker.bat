@@ -39,8 +39,8 @@ echo   MoodVibe Creator is now running!
 echo ================================================
 echo.
 echo Frontend:  http://localhost:3000
-echo Backend:   http://localhost:8000
-echo API Docs:  http://localhost:8000/docs
+echo Backend:   http://localhost:8899
+echo API Docs:  http://localhost:8899/docs
 echo.
 echo To view logs: docker-compose logs -f
 echo To stop:     docker-compose down

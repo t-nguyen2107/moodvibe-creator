@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"  # development, testing, production
 
     # Server Configuration
-    PORT: int = 8899  # Server port (changed from 8000 to avoid conflicts)
+    PORT: int = 8899  # Server port
 
     # Database (can be overridden, will auto-detect if not set)
     DATABASE_URL: Optional[str] = None
