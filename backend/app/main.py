@@ -20,6 +20,8 @@ app.add_middleware(
         settings.FRONTEND_URL,
         "http://localhost:3000",
         "http://localhost:3001",  # Next.js default port
+        "http://localhost:8899",
+        "https://moodvibe-creator.vercel.app",  # Production frontend
     ],
     allow_credentials=True,
     allow_methods=["*"],

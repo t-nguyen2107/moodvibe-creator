@@ -12,6 +12,16 @@ Automatically generate music playlists and upload to YouTube/TikTok
 
 ---
 
+## 🚀 Quick Links
+
+| Link | Description |
+|------|-------------|
+| [📖 Documentation](#features) | Features & usage |
+| [🚀 Deploy to Production](DEPLOYMENT.md) | **FREE hosting guide** |
+| [🤝 Contributing](CONTRIBUTING.md) | How to contribute |
+
+---
+
 ## ✨ Features
 
 ### 🟢 Completed

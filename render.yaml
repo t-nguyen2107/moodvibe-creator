@@ -1,0 +1,47 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: moodvibe-backend
+    runtime: python
+    pythonVersion: "3.11"
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: DATABASE_URL
+        value: sqlite:///./database.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MASTER_ENCRYPTION_KEY
+        generateValue: true
+      - key: UPLOAD_DIR
+        value: ./uploads
+      - key: MAX_PLAYLIST_SIZE
+        value: "20"
+      - key: FRONTEND_URL
+        value: https://moodvibe-creator.vercel.app
+      - key: AI_PROVIDER
+        value: auto
+      - key: OLLAMA_ENABLED
+        value: "false"
+      - key: OLLAMA_BASE_URL
+        value: http://localhost:11434
+      - key: OLLAMA_MODEL
+        value: llama3
+    disk:
+      name: moodvibe-data
+      mountPath: /app/uploads
+      sizeGB: 1
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # Frontend Web Service (Alternative: use Vercel instead)
+  # - type: web
+  #   name: moodvibe-frontend
+  #   runtime: node
+  #   buildCommand: cd frontend && npm install && npm run build
+  #   startCommand: cd frontend && npm start
+  #   envVars:
+  #     - key: NEXT_PUBLIC_API_URL
+  #       value: https://moodvibe-backend.onrender.com
