@@ -1,28 +1,28 @@
 # 🎵 MoodVibe Creator
 
-Tạo playlist nhạc tự động và upload lên YouTube/TikTok
+Automatically generate music playlists and upload to YouTube/TikTok
 
-> **📍 Current Stage:** Development - Khuyến khích chạy **local** với **Ollama** (miễn phí)
+> **📍 Current Stage:** Development - Recommended to run **locally** with **Ollama** (free)
 
 ---
 
 ## ✨ Features
 
-### 🟢 Hoàn thành
-- 🔍 **Tìm nhạc đa nguồn** - YouTube, SoundCloud, Pixabay, Free Music Archives
-- 🤖 **AI Music Search** - Tìm nhạc bằng ngôn ngữ tự nhiên (hỗ trợ Ollama miễn phí)
-- 🎵 **Ghép audio** - Kết hợp các bài hát với khoảng nghỉ (5-10 giây)
-- 🎬 **Tạo video MP4** - Từ audio + hình nền
-- 📥 **Download MP3/MP4** - Về máy
-- 🔒 **Bảo mật API keys** - Mã hóa AES-256
-- ✅ **Bộ lọc nhạc royalty-free** - Download an toàn
-- ⚠️ **Cảnh báo bản quyền** - Khi upload nhạc có copyright
-- 🎯 **Special genres** - Nhạc làm việc, nhạc không lời, nhạc ngủ...
+### 🟢 Completed
+- 🔍 **Multi-source music search** - YouTube, SoundCloud, Pixabay, Free Music Archives
+- 🤖 **AI Music Search** - Find music using natural language (free with Ollama)
+- 🎵 **Audio merging** - Combine songs with gaps (5-10 seconds)
+- 🎬 **MP4 video creation** - From audio + background image
+- 📥 **Download MP3/MP4** - Save to your device
+- 🔒 **Secure API key storage** - AES-256 encryption
+- ✅ **Royalty-free filter** - Safe downloads
+- ⚠️ **Copyright warning** - Alerts for copyrighted music
+- 🎯 **Special genres** - Work music, lo-fi, sleep music, baby lullabies...
 
 ### 🟡 In Progress
-- 🎨 **Tạo hình nền AI** (Stable Diffusion) - đang phát triển
-- 📤 **Upload YouTube** - đang phát triển
-- 📤 **Upload TikTok** - đang phát triển
+- 🎨 **AI background generation** (Stable Diffusion) - under development
+- 📤 **YouTube upload** - under development
+- 📤 **TikTok upload** - under development
 
 ### 🔮 Future Features
 - 👤 User authentication (login/register)
@@ -41,7 +41,7 @@ Tạo playlist nhạc tự động và upload lên YouTube/TikTok
 git clone https://github.com/t-nguyen2107/moodvibe-creator.git
 cd moodvibe-creator
 
-# 2. Run setup script (tự động tạo .env với SECRET_KEY random)
+# 2. Run setup script (auto-generates .env with random SECRET_KEY)
 setup-env.bat
 
 # 3. Start services
@@ -63,7 +63,7 @@ docker-compose up -d
 cp .env.example backend/.env
 cp frontend/.env.local.example frontend/.env.local
 
-# Edit backend/.env - thay đổi SECRET_KEY và MASTER_ENCRYPTION_KEY
+# Edit backend/.env - change SECRET_KEY and MASTER_ENCRYPTION_KEY
 
 # Start
 docker-compose up -d
@@ -78,13 +78,13 @@ docker-compose down
 
 ### 💻 Option 3: Manual (Local Development)
 
-> **💡 Tip:** Khuyến khích dùng **Ollama** để tiết kiệm chi phí AI!
+> **💡 Tip:** Use **Ollama** for free AI features!
 
 #### Prerequisites
 - Python 3.11+
 - Node.js 18+
-- FFmpeg (cài đặt global)
-- **Ollama** (optional, nhưng recommended)
+- FFmpeg (installed globally)
+- **Ollama** (optional, but recommended)
 
 #### 1. Setup Ollama (FREE AI)
 
@@ -109,13 +109,13 @@ cp frontend/.env.local.example frontend/.env.local
 
 Edit `backend/.env`:
 ```bash
-# Sử dụng Ollama (FREE)
+# Use Ollama (FREE)
 AI_PROVIDER=ollama
 OLLAMA_ENABLED=true
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3
 
-# Hoặc dùng OpenAI (Paid)
+# Or use OpenAI (Paid)
 # AI_PROVIDER=openai
 # OPENAI_API_KEY=sk-your-key
 ```
@@ -153,7 +153,7 @@ cd frontend
 npm run dev
 ```
 
-Truy cập: http://localhost:3000
+Access: http://localhost:3000
 
 ---
 
@@ -169,61 +169,61 @@ Truy cập: http://localhost:3000
 
 ---
 
-## 🎯 Hướng dẫn sử dụng
+## 🎯 How to Use
 
-### 1. Tạo Playlist mới
+### 1. Create a New Playlist
 
-1. Click **"Tạo Playlist Mới"**
-2. **Bước 1**: Chọn mood và thể loại nhạc (hoặc dùng AI search)
-3. **Bước 2**: Tìm kiếm và chọn bài hát (tối đa 20 bài)
-   - Có thể lọc chỉ nhạc miễn phí bản quyền
-   - Nghe thử trước khi chọn
-4. **Bước 3**: Tùy chỉnh khoảng nghỉ giữa các bài
-5. Click **"Tạo Playlist"**
+1. Click **"Create New Playlist"**
+2. **Step 1:** Select mood and genre (or use AI search)
+3. **Step 2:** Search and select songs (max 20)
+   - Filter for royalty-free music
+   - Preview before selecting
+4. **Step 3:** Customize gaps between songs
+5. Click **"Create Playlist"**
 
-### 2. Tạo Audio & Video
+### 2. Generate Audio & Video
 
-1. Vào trang chi tiết playlist
-2. Click **"Tạo MP3"** để ghép các bài hát
-3. Click **"Tạo MP4"** để tạo video
-4. **Download** về máy
+1. Go to playlist details
+2. Click **"Generate MP3"** to merge songs
+3. Click **"Generate MP4"** to create video
+4. **Download** to your device
 
 ### 3. Upload (Coming Soon)
 
-> ⚠️ Feature đang phát triển - chưa khả dụng
+> ⚠️ Feature under development - not yet available
 
 ### 4. AI Music Search
 
-Sử dụng ngôn ngữ tự nhiên để tìm nhạc:
-- "Nhạc chill cho buổi tối"
-- "Bài hát vui tươi cho party"
-- "Nhạc tập gym energy cao"
+Use natural language to find music:
+- "Chill music for evening"
+- "Upbeat songs for party"
+- "High energy workout music"
 
 ---
 
 ## 🔑 API Keys (Optional)
 
-Vào **Settings** để lưu API keys:
+Go to **Settings** to save API keys:
 
-| API | Dùng cho | Link |
-|-----|----------|------|
-| YouTube Data API v3 | Upload YouTube | [Google Cloud Console](https://console.cloud.google.com/) |
-| TikTok API | Upload TikTok | [TikTok Developer](https://developer.tiktok.com/) |
-| Stable Diffusion | Tạo ảnh AI | [stability.ai](https://stability.ai/) |
+| API | Purpose | Link |
+|-----|---------|------|
+| YouTube Data API v3 | YouTube upload | [Google Cloud Console](https://console.cloud.google.com/) |
+| TikTok API | TikTok upload | [TikTok Developer](https://developer.tiktok.com/) |
+| Stable Diffusion | AI image generation | [stability.ai](https://stability.ai/) |
 | Spotify | Vietnam charts | [Spotify Dashboard](https://developer.spotify.com/dashboard) |
 
-> 🔒 API keys được mã hóa AES-256 trước khi lưu
+> 🔒 API keys are encrypted with AES-256 before storage
 
 ---
 
-## 📁 Cấu trúc dự án
+## 📁 Project Structure
 
 ```
 moodvibe-creator/
 ├── backend/                   # Python FastAPI
 │   ├── app/
 │   │   ├── main.py           # FastAPI app
-│   │   ├── config.py         # Cấu hình
+│   │   ├── config.py         # Configuration
 │   │   ├── models/           # SQLAlchemy models
 │   │   ├── schemas/          # Pydantic schemas
 │   │   ├── routers/          # API routes
@@ -236,7 +236,7 @@ moodvibe-creator/
 │   ├── components/           # React components
 │   ├── lib/                  # Utils, store, API
 │   └── package.json
-├── uploads/                   # Folder lưu files
+├── uploads/                   # Uploaded files
 ├── .env.example              # Environment template
 ├── setup-env.bat             # Quick setup script
 └── docker-compose.yml        # Docker config
@@ -244,12 +244,12 @@ moodvibe-creator/
 
 ---
 
-## 🔒 Bảo mật
+## 🔒 Security
 
-- ✅ API keys mã hóa AES-256-GCM
-- ✅ Master key trong environment variables
-- ✅ Không log raw API keys
-- ✅ CORS configured cho frontend domain
+- ✅ API keys encrypted with AES-256-GCM
+- ✅ Master key stored in environment variables
+- ✅ No raw API key logging
+- ✅ CORS configured for frontend domain
 
 ---
 
@@ -257,7 +257,7 @@ moodvibe-creator/
 
 ### Phase 1 (Current)
 - [x] Core features: search, create playlist, download
-- [x] AI music search với Ollama
+- [x] AI music search with Ollama
 - [ ] YouTube upload
 - [ ] TikTok upload
 - [ ] Stable Diffusion image generation
@@ -272,7 +272,7 @@ moodvibe-creator/
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to submit a Pull Request.
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
