@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Progress Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-slate-900 mb-8">🎵 Music Search Progress Demo</h1>
+
+        <!-- Search Input -->
+        <div class="mb-6">
+            <input
+                type="text"
+                id="searchInput"
+                value="nhac viet hot 2026"
+                class="w-full px-6 py-4 text-lg border-2 border-slate-300 rounded-2xl focus:border-blue-500 focus:outline-none"
+                placeholder="Nhập từ khóa tìm kiếm..."
+            />
+            <button
+                id="searchBtn"
+                class="mt-4 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all"
+            >
+                🔍 Tìm Kiếm
+            </button>
+        </div>
+
+        <!-- Progress Display -->
+        <div id="progressContainer" class="hidden">
+            <!-- Current Step -->
+            <div id="currentStep" class="bg-white rounded-2xl p-6 shadow-lg border border-blue-200 mb-6">
+                <div class="flex items-center gap-4">
+                    <div id="stepIcon" class="flex-shrink-0">🔍</div>
+                    <div class="flex-1">
+                        <p id="stepMessage" class="text-lg font-semibold text-slate-900">Đang chuẩn bị...</p>
+                        <p id="stepSource" class="text-sm text-slate-600 mt-1"></p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span id="stepProgress" class="text-2xl font-bold text-blue-600">0%</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mt-4">
+                    <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                        <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step History -->
+            <div id="stepHistory" class="space-y-2">
+                <p class="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">Tiến trình</p>
+                <div id="historyList" class="space-y-2 max-h-60 overflow-y-auto"></div>
+            </div>
+
+            <!-- Complete Message -->
+            <div id="completeMessage" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center mt-6">
+                <div class="text-4xl mb-3">✅</div>
+                <p class="text-lg font-bold text-emerald-900 mb-2">Hoàn thành!</p>
+                <p id="resultCount" class="text-sm text-emerald-700"></p>
+            </div>
+        </div>
+
+        <!-- Results Display -->
+        <div id="resultsContainer" class="hidden mt-6">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">🎵 Kết Quả</h2>
+            <div id="resultsList" class="space-y-3"></div>
+        </div>
+    </div>
+
+    <script>
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        const progressContainer = document.getElementById('progressContainer');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        const stepIcon = document.getElementById('stepIcon');
+        const stepMessage = document.getElementById('stepMessage');
+        const stepSource = document.getElementById('stepSource');
+        const stepProgress = document.getElementById('stepProgress');
+        const progressBar = document.getElementById('progressBar');
+        const historyList = document.getElementById('historyList');
+        const completeMessage = document.getElementById('completeMessage');
+        const resultCount = document.getElementById('resultCount');
+        const resultsList = document.getElementById('resultsList');
+
+        const stepIcons = {
+            analyzing: '🧠',
+            generating: '🎯',
+            searching: '🔍',
+            ranking: '📊',
+            complete: '✅',
+            error: '❌'
+        };
+
+        let eventSource = null;
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            // Reset UI
+            progressContainer.classList.remove('hidden');
+            resultsContainer.classList.add('hidden');
+            completeMessage.classList.add('hidden');
+            historyList.innerHTML = '';
+            stepProgress.textContent = '0%';
+            progressBar.style.width = '0%';
+
+            // Close previous connection
+            if (eventSource) {
+                eventSource.close();
+            }
+
+            // Start SSE stream
+            const sources = 'youtube,soundcloud';
+            const limit = 10;
+            eventSource = new EventSource(`http://localhost:8899/api/music/ai-search/stream?query=${encodeURIComponent(query)}&sources=${sources}&limit=${limit}`);
+
+            eventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    updateProgress(data);
+                } catch (error) {
+                    console.error('Failed to parse SSE data:', error);
+                }
+            };
+
+            eventSource.onerror = (error) => {
+                console.error('SSE error:', error);
+                eventSource.close();
+                showError('Kết nối bị mất. Vui lòng thử lại.');
+            };
+        });
+
+        function updateProgress(data) {
+            // Update current step
+            stepIcon.textContent = stepIcons[data.step] || '📌';
+            stepMessage.textContent = data.message;
+            stepSource.textContent = data.source || '';
+            stepProgress.textContent = data.progress + '%';
+            progressBar.style.width = data.progress + '%';
+
+            // Add to history
+            const historyItem = document.createElement('div');
+            historyItem.className = 'flex items-center gap-3 text-sm p-2 rounded-lg bg-white hover:bg-slate-50 transition-colors';
+            historyItem.innerHTML = `
+                <div class="flex-shrink-0">${stepIcons[data.step] || '📌'}</div>
+                <div class="flex-1">
+                    <p class="text-slate-700">${data.message}</p>
+                    ${data.source ? `<p class="text-xs text-slate-500">${data.source}</p>` : ''}
+                </div>
+                <div class="flex-shrink-0 text-xs text-slate-500">${data.progress}%</div>
+            `;
+            historyList.appendChild(historyItem);
+
+            // Scroll to bottom
+            historyList.scrollTop = historyList.scrollHeight;
+
+            // Handle completion
+            if (data.step === 'complete') {
+                eventSource.close();
+                completeMessage.classList.remove('hidden');
+                resultCount.textContent = `Tìm thấy ${data.total} bài hát`;
+
+                // Display results
+                if (data.songs && data.songs.length > 0) {
+                    resultsContainer.classList.remove('hidden');
+                    resultsList.innerHTML = data.songs.map((song, index) => `
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                                    ${index + 1}
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-semibold text-slate-900">${song.title}</p>
+                                    <p class="text-sm text-slate-600">${song.artist}</p>
+                                    <p class="text-xs text-slate-500 mt-1">🎵 ${song.source}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // Handle error
+            if (data.step === 'error') {
+                eventSource.close();
+                showError(data.message);
+            }
+        }
+
+        function showError(message) {
+            stepIcon.textContent = '❌';
+            stepMessage.textContent = 'Có lỗi xảy ra';
+            stepSource.textContent = message;
+        }
+    </script>
+</body>
+</html>

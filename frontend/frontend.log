@@ -1,0 +1,179 @@
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+
+> moodvibe-creator-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env.local
+
+npm warn Unknown env config "python". This will stop working in the next major version of npm.
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+   Disabled SWC as replacement for Babel because of custom Babel configuration "babel.config.js" https://nextjs.org/docs/messages/swc-disabled
+ ✓ Ready in 1900ms
+   Using external babel configuration from F:\generateYouTube\frontend\babel.config.js
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1272ms (93 modules)
+ ○ Compiling /[locale]/create ...
+ ✓ Compiled /[locale]/create in 9.7s (852 modules)
+ ✓ Compiled in 715ms (360 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 3.3s (842 modules)
+ ✓ Compiled in 588ms (856 modules)
+ ⨯ ./app/[locale]/create/page.tsx:227:23
+Syntax error: Unexpected token, expected ","
+
+  225 |                   {!isSearching && !searchError && searchResults.length > 0 && (
+  226 |                   {/* Left Column: Search Results */}
+> 227 |                   <div className="lg:col-span-8 space-y-5 pt-3">
+      |                        ^
+  228 |                     {/* Results Header */}
+  229 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+  230 |                       <div>
+ ○ Compiling /_error ...
+ ⨯ ./app/[locale]/create/page.tsx:227:23
+Syntax error: Unexpected token, expected ","
+
+  225 |                   {!isSearching && !searchError && searchResults.length > 0 && (
+  226 |                   {/* Left Column: Search Results */}
+> 227 |                   <div className="lg:col-span-8 space-y-5 pt-3">
+      |                        ^
+  228 |                     {/* Results Header */}
+  229 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+  230 |                       <div>
+ ⨯ ./app/[locale]/create/page.tsx:227:23
+Syntax error: Unexpected token, expected ","
+
+  225 |                   {!isSearching && !searchError && searchResults.length > 0 && (
+  226 |                   {/* Left Column: Search Results */}
+> 227 |                   <div className="lg:col-span-8 space-y-5 pt-3">
+      |                        ^
+  228 |                     {/* Results Header */}
+  229 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+  230 |                       <div>
+ ⨯ ./app/[locale]/create/page.tsx:229:23
+Syntax error: Unexpected token, expected ","
+
+  227 |                   {!isSearching && !searchError && searchResults.length > 0 && (
+  228 |                   {/* Left Column: Search Results */}
+> 229 |                   <div className="lg:col-span-8 space-y-5 pt-3">
+      |                        ^
+  230 |                     {/* Results Header */}
+  231 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+  232 |                       <div>
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ./app/[locale]/create/page.tsx:279:18
+Syntax error: Unexpected token, expected ","
+
+  277 |                   </div>
+  278 |
+> 279 |                   {/* Right Column: Playlist Preview (Desktop Only) */}
+      |                   ^
+  280 |                   <div className="hidden lg:block lg:col-span-4">
+  281 |                     <PlaylistPreview />
+  282 |                   </div>
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /not-found in 1278ms (1009 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 763ms (1023 modules)
+ ✓ Compiled in 976ms (1023 modules)
+ ✓ Compiled in 938ms (1019 modules)
+ ✓ Compiled in 496ms (488 modules)
+ ✓ Compiled in 618ms (1019 modules)
+ ✓ Compiled in 591ms (1019 modules)
+ ✓ Compiled in 558ms (1019 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 673ms (1009 modules)
+ ✓ Compiled in 969ms (1019 modules)
+ ✓ Compiled in 596ms (1019 modules)
+ ✓ Compiled in 892ms (1019 modules)
+ ⨯ ./app/[locale]/create/page.tsx:220:25
+Syntax error: Unexpected token, expected ","
+
+  218 |                     {!isSearching && !searchError && searchResults.length > 0 && (
+  219 |                     {/* Results Header */}
+> 220 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+      |                          ^
+  221 |                       <div>
+  222 |                         <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+  223 |                           Search Results
+ ⨯ ./app/[locale]/create/page.tsx:220:25
+Syntax error: Unexpected token, expected ","
+
+  218 |                     {!isSearching && !searchError && searchResults.length > 0 && (
+  219 |                     {/* Results Header */}
+> 220 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+      |                          ^
+  221 |                       <div>
+  222 |                         <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+  223 |                           Search Results
+ ○ Compiling /not-found ...
+ ⨯ ./app/[locale]/create/page.tsx:218:23
+Syntax error: Unexpected token, expected ","
+
+  216 |                 {!isSearching && !searchError && searchResults.length > 0 && (
+  217 |                 {/* Left Column: Search Results */}
+> 218 |                   <div className="lg:col-span-8 space-y-5 pt-3">
+      |                        ^
+  219 |                     
+  220 |                     {/* Results Header */}
+  221 |                     <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /not-found in 747ms (1009 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 918ms (1023 modules)
+ ⨯ ./app/[locale]/create/page.tsx:220:27
+Syntax error: Unexpected token, expected ","
+
+  218 |                     {!isSearching && !searchError && searchResults.length > 0 && (
+  219 |                       {/* Results Header */}
+> 220 |                       <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+      |                            ^
+  221 |                         <div>
+  222 |                           <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+  223 |                             Search Results
+ ⨯ ./app/[locale]/create/page.tsx:220:27
+Syntax error: Unexpected token, expected ","
+
+  218 |                     {!isSearching && !searchError && searchResults.length > 0 && (
+  219 |                       {/* Results Header */}
+> 220 |                       <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+      |                            ^
+  221 |                         <div>
+  222 |                           <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+  223 |                             Search Results
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 839ms (1009 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1002ms (1019 modules)
+ ✓ Compiled in 665ms (1019 modules)
+ ✓ Compiled in 1206ms (1019 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ app\[locale]\create\page.tsx (287:17) @ hasSongs
+ ⨯ ReferenceError: hasSongs is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:389:49)
+[0m [90m 285 |[39m[0m
+[0m [90m 286 |[39m                 {[90m/* Right Column: Playlist Preview (4 cols) - ALWAYS visible on desktop when has songs */[39m}[0m
+[0m[31m[1m>[22m[39m[90m 287 |[39m                 {hasSongs [33m&&[39m ([0m
+[0m [90m     |[39m                 [31m[1m^[22m[39m[0m
+[0m [90m 288 |[39m                   [33m<[39m[33mdiv[39m className[33m=[39m[32m"hidden lg:block lg:col-span-4"[39m[33m>[39m[0m
+[0m [90m 289 |[39m                     [33m<[39m[33mPlaylistPreview[39m [33m/[39m[33m>[39m[0m
+[0m [90m 290 |[39m                   [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+ ✓ Compiled /not-found in 202ms (1009 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 799ms (1023 modules)
+ ✓ Compiled in 1157ms (1019 modules)
+ ✓ Compiled /not-found in 212ms (1009 modules)
+ ✓ Compiled in 644ms (1023 modules)
+ ✓ Compiled in 1017ms (1019 modules)
+ ✓ Compiled in 838ms (1019 modules)
+ ✓ Compiled in 862ms (1019 modules)
+ ✓ Compiled in 400ms (1005 modules)
+ ✓ Compiled in 198ms (1005 modules)
+ ✓ Compiled in 612ms (1019 modules)
+ ✓ Compiled in 563ms (1019 modules)
+ ✓ Compiled in 152ms (1005 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 603ms (1009 modules)
+ ✓ Compiled in 920ms (1019 modules)
+ ✓ Compiled in 677ms (1019 modules)

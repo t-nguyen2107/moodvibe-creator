@@ -1,0 +1,544 @@
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+
+> moodvibe-creator-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env.local
+
+npm warn Unknown env config "python". This will stop working in the next major version of npm.
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+   Disabled SWC as replacement for Babel because of custom Babel configuration "babel.config.js" https://nextjs.org/docs/messages/swc-disabled
+ ✓ Ready in 1815ms
+   Using external babel configuration from F:\generateYouTube\frontend\babel.config.js
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 6.7s (519 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 450ms (220 modules)
+ ○ Compiling /[locale]/create ...
+ ✓ Compiled /[locale]/create in 3.7s (848 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 541ms (858 modules)
+ ✓ Compiled in 896ms (872 modules)
+ ✓ Compiled in 524ms (872 modules)
+ ○ Compiling /[locale]/settings ...
+ ✓ Compiled /[locale]/settings in 744ms (876 modules)
+ ✓ Compiled in 700ms (890 modules)
+ ✓ Compiled in 589ms (890 modules)
+ ✓ Compiled in 785ms (890 modules)
+ ✓ Compiled in 706ms (890 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 507ms (880 modules)
+ ✓ Compiled in 316ms (379 modules)
+ ✓ Compiled in 894ms (886 modules)
+ ✓ Compiled in 359ms (373 modules)
+ ✓ Compiled in 711ms (882 modules)
+ ⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at loadManifest (F:\generateYouTube\frontend\node_modules\next\dist\server\load-manifest.js:30:27)
+    at DevServer.getNextFontManifest (F:\generateYouTube\frontend\node_modules\next\dist\server\next-server.js:706:47)
+    at DevServer.findPageComponents (F:\generateYouTube\frontend\node_modules\next\dist\server\dev\next-dev-server.js:556:43)
+    at async DevServer.renderPageComponent (F:\generateYouTube\frontend\node_modules\next\dist\server\base-server.js:1831:24)
+    at async DevServer.renderToResponseImpl (F:\generateYouTube\frontend\node_modules\next\dist\server\base-server.js:1881:32)
+    at async DevServer.pipeImpl (F:\generateYouTube\frontend\node_modules\next\dist\server\base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (F:\generateYouTube\frontend\node_modules\next\dist\server\next-server.js:266:17)
+    at async DevServer.handleRequestImpl (F:\generateYouTube\frontend\node_modules\next\dist\server\base-server.js:805:17) {
+  page: '/en'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1957ms (1035 modules)
+ ✓ Compiled /not-found in 227ms (1039 modules)
+ ✓ Compiled in 509ms (1053 modules)
+ ✓ Compiled in 477ms (1053 modules)
+ ✓ Compiled in 629ms (1053 modules)
+ ✓ Compiled in 410ms (1053 modules)
+ ✓ Compiled in 370ms (1053 modules)
+ ✓ Compiled in 373ms (1053 modules)
+ ✓ Compiled in 369ms (1053 modules)
+ ✓ Compiled in 378ms (1053 modules)
+ ✓ Compiled in 367ms (1053 modules)
+ ✓ Compiled in 335ms (1053 modules)
+ ✓ Compiled in 322ms (1053 modules)
+ ✓ Compiled in 364ms (1053 modules)
+ ✓ Compiled in 371ms (1051 modules)
+ ✓ Compiled in 619ms (1051 modules)
+ ✓ Compiled in 519ms (1051 modules)
+ ✓ Compiled in 626ms (1051 modules)
+ ✓ Compiled in 492ms (1051 modules)
+ ✓ Compiled in 463ms (1051 modules)
+ ✓ Compiled in 449ms (1051 modules)
+ ✓ Compiled in 442ms (1051 modules)
+ ✓ Compiled in 456ms (1051 modules)
+ ✓ Compiled in 455ms (1051 modules)
+ ✓ Compiled in 445ms (1051 modules)
+ ✓ Compiled in 486ms (1051 modules)
+ ✓ Compiled in 450ms (1051 modules)
+ ✓ Compiled in 472ms (1051 modules)
+ ✓ Compiled in 336ms (502 modules)
+ ✓ Compiled in 438ms (1051 modules)
+ ✓ Compiled in 618ms (1051 modules)
+ ✓ Compiled in 611ms (1051 modules)
+ ✓ Compiled in 510ms (1047 modules)
+ ✓ Compiled in 1217ms (1047 modules)
+ ✓ Compiled in 679ms (1047 modules)
+ ✓ Compiled in 670ms (1047 modules)
+ ✓ Compiled in 647ms (1047 modules)
+ ✓ Compiled in 748ms (1047 modules)
+ ✓ Compiled in 651ms (1047 modules)
+ ✓ Compiled in 607ms (1047 modules)
+ ✓ Compiled in 557ms (1047 modules)
+ ✓ Compiled in 566ms (1047 modules)
+ ✓ Compiled in 729ms (1047 modules)
+ ✓ Compiled in 661ms (1047 modules)
+ ✓ Compiled in 624ms (1047 modules)
+ ✓ Compiled in 592ms (1047 modules)
+ ✓ Compiled in 609ms (1047 modules)
+ ✓ Compiled in 622ms (1047 modules)
+ ✓ Compiled in 583ms (1047 modules)
+ ✓ Compiled in 568ms (1047 modules)
+ ✓ Compiled in 586ms (1047 modules)
+ ✓ Compiled in 586ms (1047 modules)
+ ✓ Compiled in 733ms (1047 modules)
+ ✓ Compiled in 635ms (1047 modules)
+ ✓ Compiled in 639ms (1047 modules)
+ ✓ Compiled in 598ms (1047 modules)
+ ✓ Compiled in 649ms (1047 modules)
+ ✓ Compiled in 553ms (1047 modules)
+ ✓ Compiled in 585ms (1047 modules)
+ ✓ Compiled in 619ms (1047 modules)
+ ✓ Compiled in 576ms (1047 modules)
+ ✓ Compiled in 555ms (1047 modules)
+ ✓ Compiled in 781ms (1047 modules)
+ ✓ Compiled in 709ms (1047 modules)
+ ✓ Compiled in 665ms (1047 modules)
+ ✓ Compiled in 618ms (1047 modules)
+ ✓ Compiled in 753ms (1047 modules)
+ ✓ Compiled in 660ms (1047 modules)
+ ✓ Compiled in 592ms (1047 modules)
+ ✓ Compiled in 521ms (1047 modules)
+ ✓ Compiled in 726ms (1047 modules)
+ ✓ Compiled in 674ms (1047 modules)
+ ✓ Compiled in 671ms (1047 modules)
+ ✓ Compiled in 657ms (1047 modules)
+ ✓ Compiled in 764ms (1047 modules)
+ ✓ Compiled in 810ms (1047 modules)
+ ✓ Compiled in 620ms (1047 modules)
+ ✓ Compiled in 560ms (1047 modules)
+ ✓ Compiled in 421ms (500 modules)
+ ✓ Compiled in 333ms (500 modules)
+ ✓ Compiled in 334ms (500 modules)
+ ✓ Compiled in 344ms (500 modules)
+ ✓ Compiled in 413ms (500 modules)
+ ✓ Compiled in 429ms (500 modules)
+ ✓ Compiled in 325ms (500 modules)
+ ✓ Compiled in 325ms (500 modules)
+ ✓ Compiled in 466ms (500 modules)
+ ✓ Compiled in 328ms (500 modules)
+ ✓ Compiled in 313ms (500 modules)
+ ✓ Compiled in 364ms (500 modules)
+ ✓ Compiled in 1003ms (1047 modules)
+ ✓ Compiled in 753ms (1047 modules)
+ ✓ Compiled in 678ms (1047 modules)
+ ✓ Compiled in 619ms (1047 modules)
+ ✓ Compiled in 794ms (1047 modules)
+ ✓ Compiled in 720ms (1047 modules)
+ ✓ Compiled in 749ms (1047 modules)
+ ✓ Compiled in 634ms (1047 modules)
+ ✓ Compiled in 768ms (1047 modules)
+ ✓ Compiled in 766ms (1047 modules)
+ ✓ Compiled in 768ms (1047 modules)
+ ✓ Compiled in 691ms (1047 modules)
+ ✓ Compiled in 417ms (500 modules)
+ ✓ Compiled in 349ms (500 modules)
+ ✓ Compiled in 368ms (500 modules)
+ ✓ Compiled in 344ms (500 modules)
+ ✓ Compiled in 432ms (500 modules)
+ ✓ Compiled in 328ms (500 modules)
+ ✓ Compiled in 308ms (500 modules)
+ ✓ Compiled in 325ms (500 modules)
+ ✓ Compiled in 473ms (500 modules)
+ ✓ Compiled in 415ms (500 modules)
+ ✓ Compiled in 349ms (500 modules)
+ ✓ Compiled in 331ms (500 modules)
+ ✓ Compiled in 1296ms (1047 modules)
+ ✓ Compiled /not-found in 450ms (1037 modules)
+ ✓ Compiled in 1204ms (1047 modules)
+ ✓ Compiled in 766ms (1047 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 575ms (1051 modules)
+ ✓ Compiled in 1115ms (1051 modules)
+ ✓ Compiled in 426ms (502 modules)
+ ✓ Compiled in 1435ms (1051 modules)
+ ✓ Compiled in 1324ms (1047 modules)
+ ✓ Compiled in 998ms (1047 modules)
+ ✓ Compiled in 1175ms (1047 modules)
+ ✓ Compiled /not-found in 361ms (1037 modules)
+ ✓ Compiled in 1129ms (1047 modules)
+ ✓ Compiled /not-found in 410ms (1037 modules)
+ ○ Compiling /[locale]/library ...
+ ✓ Compiled /[locale]/library in 1524ms (1045 modules)
+ ✓ Compiled in 857ms (1059 modules)
+ ✓ Compiled in 1565ms (1040 modules)
+ ✓ Compiled in 829ms (1050 modules)
+ ✓ Compiled /not-found in 255ms (1040 modules)
+ ✓ Compiled in 1207ms (1050 modules)
+ ✓ Compiled /not-found in 393ms (1040 modules)
+ ✓ Compiled in 1266ms (1054 modules)
+ ✓ Compiled in 761ms (1054 modules)
+ ✓ Compiled in 872ms (1054 modules)
+ ✓ Compiled in 820ms (1054 modules)
+ ✓ Compiled in 719ms (1054 modules)
+ ✓ Compiled in 709ms (1054 modules)
+ ✓ Compiled in 661ms (1054 modules)
+ ✓ Compiled in 639ms (1054 modules)
+ ✓ Compiled in 872ms (1054 modules)
+ ✓ Compiled in 830ms (1054 modules)
+ ✓ Compiled in 954ms (1054 modules)
+ ✓ Compiled in 862ms (1050 modules)
+ ✓ Compiled in 739ms (1050 modules)
+ ✓ Compiled in 713ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 1199ms (1040 modules)
+ ✓ Compiled in 952ms (1054 modules)
+ ✓ Compiled in 750ms (1054 modules)
+ ✓ Compiled in 887ms (1050 modules)
+ ✓ Compiled in 739ms (1050 modules)
+ ✓ Compiled in 721ms (1050 modules)
+ ✓ Compiled in 917ms (1050 modules)
+ ✓ Compiled in 709ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 602ms (1040 modules)
+ ✓ Compiled in 1768ms (1050 modules)
+ ✓ Compiled in 1289ms (1050 modules)
+ ✓ Compiled /not-found in 383ms (1040 modules)
+ ✓ Compiled in 1109ms (1054 modules)
+ ✓ Compiled in 1058ms (1050 modules)
+ ✓ Compiled in 1733ms (1050 modules)
+ ✓ Compiled in 1210ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 568ms (1040 modules)
+ ✓ Compiled in 1351ms (1050 modules)
+ ✓ Compiled in 1026ms (1050 modules)
+ ✓ Compiled /not-found in 432ms (1040 modules)
+ ✓ Compiled in 1437ms (1050 modules)
+ ✓ Compiled in 1269ms (1050 modules)
+ ✓ Compiled in 838ms (1050 modules)
+ ✓ Compiled in 1311ms (1050 modules)
+ ✓ Compiled in 1267ms (1050 modules)
+ ✓ Compiled /not-found in 434ms (1040 modules)
+ ✓ Compiled in 1055ms (1054 modules)
+ ✓ Compiled in 1102ms (1054 modules)
+ ✓ Compiled in 1043ms (1054 modules)
+ ✓ Compiled in 783ms (1050 modules)
+ ✓ Compiled in 652ms (1050 modules)
+ ✓ Compiled in 1053ms (1050 modules)
+ ✓ Compiled in 985ms (1050 modules)
+ ✓ Compiled in 1128ms (1050 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 608ms (1040 modules)
+ ✓ Compiled in 680ms (1040 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 685ms (1054 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 989ms (1054 modules)
+ ✓ Compiled in 784ms (1054 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 975ms (1054 modules)
+ ✓ Compiled in 1024ms (1054 modules)
+ ✓ Compiled in 1249ms (1054 modules)
+ ✓ Compiled in 930ms (1050 modules)
+ ✓ Compiled in 1362ms (1050 modules)
+ ✓ Compiled in 977ms (1050 modules)
+ ✓ Compiled /not-found in 454ms (1040 modules)
+ ✓ Compiled in 1094ms (1054 modules)
+ ✓ Compiled in 918ms (1050 modules)
+ ✓ Compiled /not-found in 279ms (1040 modules)
+ ✓ Compiled in 709ms (1054 modules)
+ ✓ Compiled in 501ms (1054 modules)
+ ✓ Compiled in 865ms (1054 modules)
+ ✓ Compiled in 1146ms (1054 modules)
+ ✓ Compiled in 920ms (1050 modules)
+ ✓ Compiled in 800ms (1050 modules)
+ ✓ Compiled in 814ms (1050 modules)
+ ✓ Compiled in 1229ms (1050 modules)
+ ✓ Compiled in 807ms (1050 modules)
+ ✓ Compiled in 856ms (1050 modules)
+ ✓ Compiled in 700ms (1050 modules)
+ ✓ Compiled in 944ms (1050 modules)
+IntlError: MISSING_MESSAGE: Could not resolve `settings.instructions.stable_diffusion.steps` in messages for locale `en`.
+    at getFallbackFromErrorAndNotify (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/initializeConfig-DzxNJxi9.js:91:23)
+    at translateFn.raw (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/initializeConfig-DzxNJxi9.js:190:20)
+    at eval (webpack-internal:///(ssr)/./app/[locale]/settings/page.tsx:554:65)
+    at Array.map (<anonymous>)
+    at SettingsPage (webpack-internal:///(ssr)/./app/[locale]/settings/page.tsx:539:56)
+    at ai (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:6505)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:11284
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13038)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ag (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7923)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13014
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13038)
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:43088)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at a_ (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50165)
+    at ak (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49406)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46647)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:41727)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ag (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7923)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13014
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13038)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at as (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7504)
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:10920)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ag (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7923)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13014
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13038)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:39511)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ag (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7923)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13014
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13038)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ab (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:39511)
+    at e (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:46298)
+    at aS (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:48276)
+    at ag (F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:7923)
+    at F:\generateYouTube\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:13014 {
+  code: 'MISSING_MESSAGE',
+  originalMessage: 'Could not resolve `settings.instructions.stable_diffusion.steps` in messages for locale `en`.'
+}
+ ⨯ app\[locale]\settings\page.tsx (477:70) @ map
+ ⨯ TypeError: t.raw(...).map is not a function
+    at eval (./app/[locale]/settings/page.tsx:554:112)
+    at Array.map (<anonymous>)
+    at SettingsPage (./app/[locale]/settings/page.tsx:539:56)
+[0m [90m 475 |[39m                   [33m<[39m[33m/[39m[33mh3[39m[33m>[39m[0m
+[0m [90m 476 |[39m                   [33m<[39m[33mol[39m className[33m=[39m[32m"space-y-3"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 477 |[39m                     {t[33m.[39mraw([32m`instructions.${serviceInfo.value}.steps`[39m)[33m.[39mmap((step[33m:[39m string[33m,[39m i[33m:[39m number) [33m=>[39m ([0m
+[0m [90m     |[39m                                                                      [31m[1m^[22m[39m[0m
+[0m [90m 478 |[39m                       [33m<[39m[33mli[39m key[33m=[39m{i} className[33m=[39m[32m"flex items-start gap-4"[39m[33m>[39m[0m
+[0m [90m 479 |[39m                         [33m<[39m[33mdiv[39m className[33m=[39m{[32m`[39m[0m
+[0m [90m 480 |[39m [32m                          flex-shrink-0 w-8 h-8 rounded-xl[39m[0m
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 735ms (1040 modules)
+ ✓ Compiled in 1047ms (1054 modules)
+ ✓ Compiled in 1378ms (1050 modules)
+ ✓ Compiled in 1278ms (1050 modules)
+ ✓ Compiled in 867ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 1279ms (1054 modules)
+ ✓ Compiled in 974ms (1054 modules)
+ ✓ Compiled in 847ms (505 modules)
+ ✓ Compiled in 891ms (1050 modules)
+ ✓ Compiled in 913ms (1050 modules)
+ ✓ Compiled in 838ms (1050 modules)
+ ✓ Compiled in 710ms (1050 modules)
+ ✓ Compiled in 754ms (1050 modules)
+ ✓ Compiled in 1256ms (1050 modules)
+ ✓ Compiled in 1015ms (1050 modules)
+ ✓ Compiled in 1005ms (1050 modules)
+ ✓ Compiled in 645ms (1050 modules)
+ ✓ Compiled in 646ms (1050 modules)
+ ✓ Compiled /not-found in 469ms (1040 modules)
+ ✓ Compiled in 694ms (1054 modules)
+ ✓ Compiled in 2.3s (1054 modules)
+ ✓ Compiled in 1007ms (1054 modules)
+ ✓ Compiled in 663ms (1050 modules)
+ ✓ Compiled in 659ms (1050 modules)
+ ✓ Compiled in 834ms (1050 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1388ms (1046 modules)
+ ⨯ app\[locale]\create\page.tsx (189:15) @ AdvancedFilters
+ ⨯ ReferenceError: AdvancedFilters is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:232:120)
+[0m [90m 187 |[39m             {[90m/* Advanced Filters (Collapsible) */[39m}[0m
+[0m [90m 188 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"w-full max-w-5xl mx-auto"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 189 |[39m               [33m<[39m[33mAdvancedFilters[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 190 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 191 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 192 |[39m         [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+ ✓ Compiled /not-found in 367ms (1036 modules)
+ ✓ Compiled in 481ms (503 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ app\[locale]\create\page.tsx (189:15) @ AdvancedFilters
+ ⨯ ReferenceError: AdvancedFilters is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:232:120)
+[0m [90m 187 |[39m             {[90m/* Advanced Filters (Collapsible) */[39m}[0m
+[0m [90m 188 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"w-full max-w-5xl mx-auto"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 189 |[39m               [33m<[39m[33mAdvancedFilters[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 190 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 191 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 192 |[39m         [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+ ✓ Compiled in 764ms (1050 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ app\[locale]\create\page.tsx (190:15) @ AdvancedFilters
+ ⨯ ReferenceError: AdvancedFilters is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:233:120)
+[0m [90m 188 |[39m             {[90m/* Advanced Filters (Collapsible) */[39m}[0m
+[0m [90m 189 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"w-full max-w-5xl mx-auto"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 190 |[39m               [33m<[39m[33mAdvancedFilters[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 191 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 192 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 193 |[39m         [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 925ms (1050 modules)
+ ⨯ app\[locale]\create\page.tsx (199:15) @ AdvancedFilters
+ ⨯ ReferenceError: AdvancedFilters is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:234:120)
+[0m [90m 197 |[39m             {[90m/* Advanced Filters (Collapsible) */[39m}[0m
+[0m [90m 198 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"w-full max-w-5xl mx-auto"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 199 |[39m               [33m<[39m[33mAdvancedFilters[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 200 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 201 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 202 |[39m         [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+ ⨯ app\[locale]\create\page.tsx (199:15) @ AdvancedFilters
+ ⨯ ReferenceError: AdvancedFilters is not defined
+    at CreatePlaylistPage (./app/[locale]/create/page.tsx:234:120)
+[0m [90m 197 |[39m             {[90m/* Advanced Filters (Collapsible) */[39m}[0m
+[0m [90m 198 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"w-full max-w-5xl mx-auto"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 199 |[39m               [33m<[39m[33mAdvancedFilters[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 200 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 201 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 202 |[39m         [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1116ms (1050 modules)
+ ✓ Compiled in 1620ms (1054 modules)
+ ✓ Compiled in 1321ms (1050 modules)
+ ✓ Compiled in 781ms (1050 modules)
+ ✓ Compiled in 933ms (1050 modules)
+ ✓ Compiled in 1064ms (1050 modules)
+ ✓ Compiled in 747ms (1050 modules)
+ ✓ Compiled in 1071ms (1050 modules)
+ ✓ Compiled in 1170ms (1050 modules)
+ ✓ Compiled in 595ms (503 modules)
+ ✓ Compiled in 1035ms (1050 modules)
+ ✓ Compiled in 871ms (1050 modules)
+ ✓ Compiled in 739ms (1050 modules)
+ ✓ Compiled in 1137ms (1050 modules)
+ ✓ Compiled /not-found in 478ms (1040 modules)
+ ⨯ ./app/[locale]/create/page.tsx:207:37
+Syntax error: Unexpected token
+
+  205 |           {/* Loading State */}
+  206 |           {isSearching && (
+> 207 |             <div className="space-y-6">
+      |                                      ^
+  208 |               <div className="flex items-center justify-center py-16">
+  209 |                 <FullPageLoading />
+  210 |               </div>
+ ○ Compiling /_error ...
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled /_error in 5.9s (1042 modules)
+ ✓ Compiled in 621ms (1056 modules)
+ ✓ Compiled in 1031ms (1054 modules)
+ ✓ Compiled in 2.2s (1050 modules)
+ ✓ Compiled in 1289ms (1050 modules)
+ ✓ Compiled in 811ms (1050 modules)
+ ✓ Compiled /not-found in 361ms (1040 modules)
+ ✓ Compiled in 1031ms (1050 modules)
+ ✓ Compiled in 712ms (1050 modules)
+ ✓ Compiled /not-found in 316ms (1040 modules)
+ ✓ Compiled in 945ms (1050 modules)
+ ✓ Compiled in 690ms (1050 modules)
+ ✓ Compiled in 736ms (1050 modules)
+ ✓ Compiled /not-found in 271ms (1040 modules)
+ ✓ Compiled in 1098ms (1054 modules)
+ ✓ Compiled in 999ms (1048 modules)
+ ✓ Compiled in 901ms (1048 modules)
+ ✓ Compiled in 777ms (1048 modules)
+ ✓ Compiled in 929ms (1048 modules)
+ ✓ Compiled in 783ms (1048 modules)
+ ⨯ ./app/globals.css:860:1
+Syntax error: F:\generateYouTube\frontend\app\globals.css Unexpected }
+
+ [90m 858 | [39m  opacity[33m:[39m 0[33m;[39m
+ [90m 859 | [39m[33m}[39m
+[1m[31m>[39m[22m[90m 860 | [39m[33m}[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 861 | [39m
+ ⨯ ./app/globals.css:860:1
+Syntax error: F:\generateYouTube\frontend\app\globals.css Unexpected }
+
+ [90m 858 | [39m  opacity[33m:[39m 0[33m;[39m
+ [90m 859 | [39m[33m}[39m
+[1m[31m>[39m[22m[90m 860 | [39m[33m}[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 861 | [39m
+ ○ Compiling /_error ...
+ ⨯ ./app/globals.css:860:1
+Syntax error: F:\generateYouTube\frontend\app\globals.css Unexpected }
+
+ [90m 858 | [39m  opacity[33m:[39m 0[33m;[39m
+ [90m 859 | [39m[33m}[39m
+[1m[31m>[39m[22m[90m 860 | [39m[33m}[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 861 | [39m
+ ⨯ ./app/globals.css:860:1
+Syntax error: F:\generateYouTube\frontend\app\globals.css Unexpected }
+
+ [90m 858 | [39m  opacity[33m:[39m 0[33m;[39m
+ [90m 859 | [39m[33m}[39m
+[1m[31m>[39m[22m[90m 860 | [39m[33m}[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 861 | [39m
+ ✓ Compiled /not-found in 1089ms (1054 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1100ms (1040 modules)
+ ✓ Compiled in 957ms (1050 modules)
+ ✓ Compiled in 769ms (1050 modules)
+ ✓ Compiled in 908ms (1050 modules)
+ ✓ Compiled in 1314ms (1050 modules)
+ ✓ Compiled in 983ms (1050 modules)
+ ✓ Compiled in 1001ms (1050 modules)
+ ✓ Compiled in 1003ms (1050 modules)
+ ✓ Compiled in 432ms (1036 modules)
+ ✓ Compiled in 484ms (1036 modules)
+ ✓ Compiled in 457ms (1036 modules)
+ ✓ Compiled in 740ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 675ms (1040 modules)
+ ✓ Compiled in 906ms (1050 modules)
+ ✓ Compiled in 265ms (1036 modules)
+ ✓ Compiled in 429ms (1036 modules)
+ ✓ Compiled in 974ms (1050 modules)
+ ✓ Compiled in 983ms (1050 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 1717ms (1054 modules)
+ ✓ Compiled in 526ms (503 modules)
+ ✓ Compiled in 393ms (503 modules)
+ ✓ Compiled in 1744ms (1050 modules)
+ ✓ Compiled in 1198ms (1056 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ components\AIMusicSearch.tsx (370:7) @ isSearching
+ ⨯ ReferenceError: isSearching is not defined
+    at AIMusicSearch (./components/AIMusicSearch.tsx:368:13)
+[0m [90m 368 |[39m[0m
+[0m [90m 369 |[39m       {[90m/* Search Progress - Shows during search */[39m}[0m
+[0m[31m[1m>[22m[39m[90m 370 |[39m       {isSearching [33m&&[39m localQuery [33m&&[39m ([0m
+[0m [90m     |[39m       [31m[1m^[22m[39m[0m
+[0m [90m 371 |[39m         [33m<[39m[33mdiv[39m className[33m=[39m[32m"mt-8"[39m[33m>[39m[0m
+[0m [90m 372 |[39m           [33m<[39m[33mSearchProgress[39m[0m
+[0m [90m 373 |[39m             query[33m=[39m{localQuery}[0m
+ ✓ Compiled /not-found in 477ms (1046 modules)
+[?25h

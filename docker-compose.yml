@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: moodvibe-backend
+    ports:
+      - "8899:8899"
+    environment:
+      - DATABASE_URL=sqlite:///./database.db
+      - SECRET_KEY=${SECRET_KEY:-893339b501192adee30e25f79327edba3e462e3664b13a3b4e50a26bfc284439}
+      - MASTER_ENCRYPTION_KEY=${MASTER_ENCRYPTION_KEY:-lX-_e2XVJ-GQ8OGAkuQY6HineaK6EuTaGxmUG5ydiF4}
+      - UPLOAD_DIR=/app/uploads
+      - MAX_PLAYLIST_SIZE=20
+      - FRONTEND_URL=http://localhost:3000
+      - PORT=8899
+    volumes:
+      - ./uploads:/app/uploads
+      - backend-data:/app/data
+    restart: unless-stopped
+    networks:
+      - moodvibe-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8899/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: moodvibe-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8899
+      - NODE_ENV=production
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - moodvibe-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  backend-data:
+    driver: local
+
+networks:
+  moodvibe-network:
+    driver: bridge
