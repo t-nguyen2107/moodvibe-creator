@@ -16,7 +16,7 @@ export default async function LocaleLayout({
   params: { locale: string };
 }) {
   // Ensure that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as any)) {
     notFound();
   }
 
