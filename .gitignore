@@ -72,3 +72,9 @@ tmpclaude-*
 
 # Next.js build cache
 .next/
+
+# Test & report docs
+*TEST*.md
+*REPORT*.md
+*STATUS*.md
+test_*.json
