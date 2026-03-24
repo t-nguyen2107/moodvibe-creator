@@ -35,7 +35,7 @@ services:
       dockerfile: Dockerfile
     container_name: moodvibe-frontend
     ports:
-      - "3000:3000"
+      - "8000:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8899
       - NODE_ENV=production

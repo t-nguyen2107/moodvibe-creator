@@ -21,7 +21,7 @@
 3. **Wait for containers to start** (first run takes 2-3 minutes for building)
 
 4. **Access the application:**
-   - 🌐 **Frontend:** http://localhost:3000
+   - 🌐 **Frontend:** http://localhost:8000
    - 📚 **API Docs:** http://localhost:8899/docs
 
 ---
@@ -174,7 +174,7 @@ docker-compose up -d
 - **Image:** Node 20 Alpine
 - **Port:** 3000
 - **Build:** Next.js standalone output
-- **Health Check:** http://localhost:3000
+- **Health Check:** http://localhost:8000
 
 ### Volumes
 - `./uploads:/app/uploads` - Shared file storage

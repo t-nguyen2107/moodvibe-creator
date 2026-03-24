@@ -38,7 +38,7 @@ echo ================================================
 echo   MoodVibe Creator is now running!
 echo ================================================
 echo.
-echo Frontend:  http://localhost:3000
+echo Frontend:  http://localhost:8000
 echo Backend:   http://localhost:8899
 echo API Docs:  http://localhost:8899/docs
 echo.
