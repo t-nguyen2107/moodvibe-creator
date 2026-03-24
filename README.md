@@ -1,5 +1,11 @@
 # 🎵 MoodVibe Creator
 
+[![GitHub stars](https://img.shields.io/github/stars/t-nguyen2107/moodvibe-creator?style=social)](https://github.com/t-nguyen2107/moodvibe-creator/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/t-nguyen2107/moodvibe-creator?style=social)](https://github.com/t-nguyen2107/moodvibe-creator/network/members)
+[![GitHub license](https://img.shields.io/github/license/t-nguyen2107/moodvibe-creator)](https://github.com/t-nguyen2107/moodvibe-creator/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/t-nguyen2107/moodvibe-creator)](https://github.com/t-nguyen2107/moodvibe-creator/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/t-nguyen2107/moodvibe-creator)](https://github.com/t-nguyen2107/moodvibe-creator/commits/main)
+
 Automatically generate music playlists and upload to YouTube/TikTok
 
 > **📍 Current Stage:** Development - Recommended to run **locally** with **Ollama** (free)
