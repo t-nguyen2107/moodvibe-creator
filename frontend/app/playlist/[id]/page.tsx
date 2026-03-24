@@ -6,7 +6,7 @@ import { api } from '@/lib/api'
 import {
   MusicalNoteIcon,
   PlayIcon,
-  DownloadIcon,
+  ArrowDownTrayIcon,
   VideoCameraIcon,
   ExclamationTriangleIcon,
   SparklesIcon,
@@ -558,7 +558,7 @@ export default function PlaylistDetailPage() {
             ">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary-500/20 to-secondary-600/20 flex items-center justify-center shadow-lg shadow-secondary-500/20">
-                  <DownloadIcon className="h-7 w-7 text-secondary-600 dark:text-secondary-400" />
+                  <ArrowDownTrayIcon className="h-7 w-7 text-secondary-600 dark:text-secondary-400" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-slate-900 dark:text-slate-100">
@@ -589,7 +589,7 @@ export default function PlaylistDetailPage() {
                     "
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-primary-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-                      <DownloadIcon className="h-6 w-6 text-white" />
+                      <ArrowDownTrayIcon className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <p className="font-black text-xl text-primary-900 dark:text-blue-400">Download MP3</p>
@@ -616,7 +616,7 @@ export default function PlaylistDetailPage() {
                     "
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-                      <DownloadIcon className="h-6 w-6 text-white" />
+                      <ArrowDownTrayIcon className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <p className="font-black text-xl text-accent-900 dark:text-accent-400">Download MP4</p>
