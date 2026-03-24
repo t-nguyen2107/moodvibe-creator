@@ -64,3 +64,11 @@ uploads/*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# Claude context files
+.claude/
+tmpclaude-*
+.playwright-mcp/
+
+# Next.js build cache
+.next/
