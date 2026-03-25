@@ -304,11 +304,21 @@ async def github_auth_redirect():
             detail="GitHub OAuth not configured"
         )
     
-    # Backend callback URL - use the API URL (same host as this backend)
-    # For local: http://localhost:8899/api/auth/github/callback
-    # For production: https://moodvibe-backend.onrender.com/api/auth/github/callback
+    # Determine backend URL for callback
+    # In production, use the deployed backend URL
+    # In development, use localhost
     import os
-    api_url = os.environ.get("API_URL", "http://localhost:8899")
+    render_external_url = os.environ.get("RENDER_EXTERNAL_URL")
+    if render_external_url:
+        # Running on Render
+        api_url = render_external_url
+    elif "vercel.app" in settings.FRONTEND_URL or "onrender.com" in str(os.environ):
+        # Production but RENDER_EXTERNAL_URL not set
+        api_url = "https://moodvibe-backend.onrender.com"
+    else:
+        # Development
+        api_url = "http://localhost:8899"
+    
     redirect_uri = f"{api_url}/api/auth/github/callback"
     
     scope = "read:user user:email"
