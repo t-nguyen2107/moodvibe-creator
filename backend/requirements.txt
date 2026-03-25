@@ -1,7 +1,7 @@
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 sqlalchemy==2.0.23
-pydantic==2.5.0
+pydantic>=2.7.4
 pydantic-settings==2.1.0
 python-multipart==0.0.6
 python-jose[cryptography]==3.3.0
@@ -16,13 +16,13 @@ aiofiles==23.2.1
 google-api-python-client==2.108.0
 google-auth-httplib2==0.1.1
 google-auth-oauthlib==1.1.0
-google-auth==2.25.2  # For verifying Google ID tokens
+google-auth==2.25.2
 httpx==0.25.2
 
 # AI and ML dependencies
-langchain>=0.1.0
-langchain-openai>=0.0.1
-langchain-ollama>=0.1.0  # For local LLM support (Ollama + Llama 3)
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-ollama>=0.1.0
 openai>=1.12.0
 
 # Caching
