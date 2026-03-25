@@ -2,17 +2,17 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { useAuthStore } from '@/lib/auth'
 import { api } from '@/lib/api'
 import { EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebook, FaGithub } from 'react-icons/fa'
+import { GoogleLogin } from '@react-oauth/google'
 
 export default function LoginPage() {
   const router = useRouter()
   const locale = useLocale()
-  const t = useTranslations('auth')
   
   const { login } = useAuthStore()
   
@@ -38,19 +38,30 @@ export default function LoginPage() {
     }
   }
 
-  // OAuth handlers would use popup/redirect flow
-  const handleGoogleLogin = () => {
-    // TODO: Implement Google OAuth
-    alert('Google OAuth - Coming soon!')
+  const handleGoogleSuccess = async (credentialResponse: any) => {
+    setError('')
+    setIsLoading(true)
+
+    try {
+      const data = await api.loginWithGoogle(credentialResponse.credential)
+      login(data.access_token, data.user)
+      router.push(`/${locale}/library`)
+    } catch (err: any) {
+      setError(err.message || 'Google login failed')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleGoogleError = () => {
+    setError('Google login failed. Please try again.')
   }
 
   const handleFacebookLogin = () => {
-    // TODO: Implement Facebook OAuth
     alert('Facebook OAuth - Coming soon!')
   }
 
   const handleGithubLogin = () => {
-    // TODO: Implement GitHub OAuth
     alert('GitHub OAuth - Coming soon!')
   }
 
@@ -67,13 +78,15 @@ export default function LoginPage() {
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-white/20">
           {/* OAuth Buttons */}
           <div className="space-y-3 mb-6">
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full flex items-center justify-center gap-3 bg-white text-gray-700 font-medium py-3 px-4 rounded-xl hover:bg-gray-100 transition-colors"
-            >
-              <FcGoogle className="w-5 h-5" />
-              Continue with Google
-            </button>
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={handleGoogleError}
+              useOneTap
+              theme="filled_black"
+              shape="rectangular"
+              width="100%"
+              text="continue_with"
+            />
             
             <button
               onClick={handleFacebookLogin}

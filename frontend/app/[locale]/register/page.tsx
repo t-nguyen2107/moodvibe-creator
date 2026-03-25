@@ -8,6 +8,7 @@ import { api } from '@/lib/api'
 import { EnvelopeIcon, LockClosedIcon, UserIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebook, FaGithub } from 'react-icons/fa'
+import { GoogleLogin } from '@react-oauth/google'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -50,11 +51,26 @@ export default function RegisterPage() {
     }
   }
 
-  // OAuth handlers
-  const handleGoogleLogin = () => {
-    alert('Google OAuth - Coming soon!')
+  const handleGoogleSuccess = async (credentialResponse: any) => {
+    setError('')
+    setIsLoading(true)
+
+    try {
+      const data = await api.loginWithGoogle(credentialResponse.credential)
+      login(data.access_token, data.user)
+      router.push(`/${locale}/library`)
+    } catch (err: any) {
+      setError(err.message || 'Google login failed')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
+  const handleGoogleError = () => {
+    setError('Google login failed. Please try again.')
+  }
+
+  // OAuth handlers
   const handleFacebookLogin = () => {
     alert('Facebook OAuth - Coming soon!')
   }
@@ -76,13 +92,14 @@ export default function RegisterPage() {
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-white/20">
           {/* OAuth Buttons */}
           <div className="space-y-3 mb-6">
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full flex items-center justify-center gap-3 bg-white text-gray-700 font-medium py-3 px-4 rounded-xl hover:bg-gray-100 transition-colors"
-            >
-              <FcGoogle className="w-5 h-5" />
-              Continue with Google
-            </button>
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={handleGoogleError}
+              theme="filled_black"
+              shape="rectangular"
+              width="100%"
+              text="continue_with"
+            />
             
             <button
               onClick={handleFacebookLogin}

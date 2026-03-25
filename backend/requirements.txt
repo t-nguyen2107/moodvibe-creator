@@ -16,6 +16,7 @@ aiofiles==23.2.1
 google-api-python-client==2.108.0
 google-auth-httplib2==0.1.1
 google-auth-oauthlib==1.1.0
+google-auth==2.25.2  # For verifying Google ID tokens
 httpx==0.25.2
 
 # AI and ML dependencies

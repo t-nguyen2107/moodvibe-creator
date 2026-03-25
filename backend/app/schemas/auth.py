@@ -41,7 +41,8 @@ class Token(BaseModel):
 
 
 class OAuthLogin(BaseModel):
-    access_token: str
+    credential: Optional[str] = None  # Google ID token (JWT)
+    access_token: Optional[str] = None  # For Facebook/GitHub
     provider: str  # google, facebook, github
 
 

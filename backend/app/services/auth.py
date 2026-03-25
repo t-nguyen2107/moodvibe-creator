@@ -113,6 +113,34 @@ def authenticate_user(db: Session, email: str, password: str) -> Optional[User]:
     return user
 
 
+async def verify_google_token(id_token: str) -> Dict[str, Any]:
+    """Verify Google ID token and return user info"""
+    from google.auth.transport import requests
+    from google.oauth2 import id_token as google_id_token
+    
+    try:
+        # Verify the token
+        idinfo = google_id_token.verify_oauth2_token(
+            id_token, 
+            requests.Request(),
+            clock_skew_in_seconds=10
+        )
+        
+        # Token is valid, return user info
+        return {
+            'id': idinfo['sub'],
+            'email': idinfo.get('email'),
+            'name': idinfo.get('name'),
+            'picture': idinfo.get('picture'),
+            'email_verified': idinfo.get('email_verified', False)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Invalid Google token: {str(e)}"
+        )
+
+
 async def get_google_user_info(access_token: str) -> Dict[str, Any]:
     """Get user info from Google OAuth"""
     async with httpx.AsyncClient() as client:

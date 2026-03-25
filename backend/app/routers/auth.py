@@ -20,7 +20,7 @@ from app.services.auth import (
     decode_token,
     get_user_by_email,
     get_user_by_oauth,
-    get_google_user_info,
+    verify_google_token,
     get_facebook_user_info,
     get_github_user_info,
     get_github_user_email
@@ -136,8 +136,15 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
 @router.post("/oauth/google", response_model=Token)
 async def login_google(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
     """Login or register with Google OAuth"""
-    # Get user info from Google
-    user_info = await get_google_user_info(oauth_data.access_token)
+    # Verify Google ID token
+    credential = oauth_data.credential or oauth_data.access_token
+    if not credential:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Google credential is required"
+        )
+    
+    user_info = await verify_google_token(credential)
     
     google_id = user_info.get("id")
     email = user_info.get("email")
@@ -153,6 +160,8 @@ async def login_google(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
         if user:
             # Link Google account
             user.google_id = google_id
+            if picture and not user.avatar_url:
+                user.avatar_url = picture
             db.commit()
     
     if not user:
