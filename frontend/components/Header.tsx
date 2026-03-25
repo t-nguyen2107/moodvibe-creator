@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { MusicalNoteIcon, CogIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from './NavLink'
-import type { Locale } from '@/i18n'
+import type { Locale } from '@/lib/i18n'
 import { useState } from 'react'
 
 const LANGUAGES: Record<Locale, { label: string; shorthand: string }> = {

@@ -54,6 +54,11 @@ export const api = {
     return response.json()
   },
 
+  getPlaylistSongs: async (id: number) => {
+    const response = await fetch(`${API_BASE_URL}/api/playlists/${id}/songs`)
+    return response.json()
+  },
+
   addSongToPlaylist: async (playlistId: number, song: any) => {
     const response = await fetch(`${API_BASE_URL}/api/playlists/${playlistId}/songs`, {
       method: 'POST',

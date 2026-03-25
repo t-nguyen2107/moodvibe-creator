@@ -1,17 +1,10 @@
 import createMiddleware from 'next-intl/middleware';
+import {locales, defaultLocale} from './lib/i18n';
 
 export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'vi', 'zh'],
-
-  // Used when no locale matches
-  defaultLocale: 'en',
-
-  // Auto-detect locale from browser settings
-  localeDetection: true,
-
-  // Prefix the default locale as well
-  prefixDefaultLocale: false
+  locales,
+  defaultLocale,
+  localePrefix: 'as-needed'
 });
 
 export const config = {

@@ -65,7 +65,7 @@ export default function PlaylistDetailPage() {
       setSongs(songsData)
 
       // Generate initial description and hashtags
-      const desc = `${playlistData.mood} music playlist for ${playlistData.genre?.replace('_', ' ')}\n\nSongs:\n${songsData.map((s, i) => `${i + 1}. ${s.title} - ${s.artist}`).join('\n')}`
+      const desc = `${playlistData.mood} music playlist for ${playlistData.genre?.replace('_', ' ')}\n\nSongs:\n${songsData.map((s: any, i: number) => `${i + 1}. ${s.title} - ${s.artist}`).join('\n')}`
       setDescription(desc)
 
       const tags = [`#${playlistData.mood}`, `#${playlistData.genre?.replace('_', '')}`, '#music', '#playlist']
@@ -80,7 +80,7 @@ export default function PlaylistDetailPage() {
   const handleGenerateAudio = async () => {
     setGenerating(true)
     try {
-      const audioUrls = songs.map(s => s.audio_url)
+      const audioUrls = songs.map(s => s.audio_url).filter((url): url is string => !!url)
       const result = await api.mergeAudio(audioUrls, 5)
       setAudioPath(result.audio_path)
     } catch (error) {

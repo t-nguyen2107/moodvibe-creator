@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import type { Locale } from '@/i18n'
+import type { Locale } from '@/lib/i18n'
 
 /**
  * Settings Page - Enhanced with Glassmorphism 2.0

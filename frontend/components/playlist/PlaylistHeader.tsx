@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { MusicalNoteIcon, ClockIcon, HeartIcon } from '@heroicons/react/24/outline'
-import { Playlist } from '@/app/[locale]/playlist/[id]/page'
+import { Playlist } from '@/lib/store'
 
 interface PlaylistHeaderProps {
   playlist: Playlist

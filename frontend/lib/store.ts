@@ -17,6 +17,7 @@ export interface Song {
   trending_rank?: number
   listeners_count?: number
   is_viral?: boolean
+  rank_position?: number
 }
 
 export interface Playlist {

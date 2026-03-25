@@ -8,14 +8,15 @@ interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export function NavLink({ href, children, className }: NavLinkProps) {
+export function NavLink({ href, children, className, onClick }: NavLinkProps) {
   const locale = useLocale();
   const localizedHref = `/${locale}${href}`;
 
   return (
-    <Link href={localizedHref} className={className}>
+    <Link href={localizedHref} className={className} onClick={onClick}>
       {children}
     </Link>
   );
