@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.models.database import init_db
-from app.routers import music, playlists, media, social
+from app.routers import music, playlists, media, social, auth
 from app.routers import settings as settings_router
 from app.routers import playlist_downloads
 
@@ -29,6 +29,7 @@ app.add_middleware(
 )
 
 # Include routers
+app.include_router(auth.router)
 app.include_router(music.router)
 app.include_router(playlists.router)
 app.include_router(media.router)

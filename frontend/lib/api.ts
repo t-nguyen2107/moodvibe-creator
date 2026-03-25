@@ -3,6 +3,89 @@ import axios from 'next/navigation'
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8899'
 
 export const api = {
+  // ===== Authentication =====
+  register: async (email: string, password: string, name?: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, name })
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.detail || 'Registration failed')
+    }
+    return response.json()
+  },
+
+  login: async (email: string, password: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.detail || 'Login failed')
+    }
+    return response.json()
+  },
+
+  loginWithGoogle: async (accessToken: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/oauth/google`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ access_token: accessToken, provider: 'google' })
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.detail || 'Google login failed')
+    }
+    return response.json()
+  },
+
+  loginWithFacebook: async (accessToken: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/oauth/facebook`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ access_token: accessToken, provider: 'facebook' })
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.detail || 'Facebook login failed')
+    }
+    return response.json()
+  },
+
+  loginWithGithub: async (accessToken: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/oauth/github`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ access_token: accessToken, provider: 'github' })
+    })
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.detail || 'GitHub login failed')
+    }
+    return response.json()
+  },
+
+  getCurrentUser: async (token: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/me`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    if (!response.ok) {
+      throw new Error('Failed to get user')
+    }
+    return response.json()
+  },
+
+  logout: async () => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+      method: 'POST'
+    })
+    return response.json()
+  },
+
   // Music
   searchMusic: async (params: {
     q?: string
