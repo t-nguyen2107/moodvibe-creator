@@ -2,8 +2,10 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from app.models.database import get_db
 from app.models.api_key import APIKey
+from app.models.user import User
 from app.schemas.api_key import APIKeyCreate, APIKeyResponse
 from app.utils.encryption import encryption_service
+from app.routers.auth import get_current_user
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
 
@@ -11,10 +13,11 @@ router = APIRouter(prefix="/api/settings", tags=["settings"])
 @router.post("/api-keys")
 async def store_api_key(
     key_data: APIKeyCreate,
-    user_id: int = 1,  # TODO: Get from auth
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Store encrypted API key"""
+    user_id = current_user.id
 
     # Check if key already exists for this service
     existing = db.query(APIKey).filter(
@@ -44,10 +47,11 @@ async def store_api_key(
 
 @router.get("/api-keys")
 async def get_api_keys(
-    user_id: int = 1,  # TODO: Get from auth
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get list of stored API keys (masked)"""
+    user_id = current_user.id
 
     keys = db.query(APIKey).filter(APIKey.user_id == user_id).all()
 
@@ -66,10 +70,11 @@ async def get_api_keys(
 @router.delete("/api-keys/{service}")
 async def delete_api_key(
     service: str,
-    user_id: int = 1,  # TODO: Get from auth
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Delete stored API key"""
+    user_id = current_user.id
 
     key = db.query(APIKey).filter(
         APIKey.user_id == user_id,

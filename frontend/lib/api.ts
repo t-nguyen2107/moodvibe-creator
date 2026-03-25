@@ -2,6 +2,22 @@ import axios from 'next/navigation'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8899'
 
+// Helper to get auth headers
+const getAuthHeaders = (): Record<string, string> => {
+  if (typeof window === 'undefined') return {}
+  
+  const authStorage = localStorage.getItem('auth-storage')
+  if (!authStorage) return {}
+  
+  try {
+    const { state } = JSON.parse(authStorage)
+    const token = state?.token
+    return token ? { 'Authorization': `Bearer ${token}` } : {}
+  } catch {
+    return {}
+  }
+}
+
 export const api = {
   // ===== Authentication =====
   register: async (email: string, password: string, name?: string) => {
@@ -34,7 +50,7 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/api/auth/oauth/google`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ access_token: accessToken, provider: 'google' })
+      body: JSON.stringify({ credential: accessToken, provider: 'google' })
     })
     if (!response.ok) {
       const error = await response.json()
@@ -69,9 +85,16 @@ export const api = {
     return response.json()
   },
 
-  getCurrentUser: async (token: string) => {
+  getCurrentUser: async (token?: string) => {
+    const headers: Record<string, string> = {}
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`
+    } else {
+      Object.assign(headers, getAuthHeaders())
+    }
+    
     const response = await fetch(`${API_BASE_URL}/api/auth/me`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers
     })
     if (!response.ok) {
       throw new Error('Failed to get user')
@@ -86,7 +109,8 @@ export const api = {
 
   logout: async () => {
     const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
-      method: 'POST'
+      method: 'POST',
+      headers: getAuthHeaders()
     })
     return response.json()
   },
@@ -108,7 +132,9 @@ export const api = {
     if (params.limit) queryParams.append('limit', params.limit.toString())
     if (params.royalty_free_only) queryParams.append('royalty_free_only', 'true')
 
-    const response = await fetch(`${API_BASE_URL}/api/music/search?${queryParams}`)
+    const response = await fetch(`${API_BASE_URL}/api/music/search?${queryParams}`, {
+      headers: getAuthHeaders()
+    })
     return response.json()
   },
 
@@ -126,31 +152,37 @@ export const api = {
   }) => {
     const response = await fetch(`${API_BASE_URL}/api/playlists/`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify(data)
     })
     return response.json()
   },
 
   getPlaylists: async () => {
-    const response = await fetch(`${API_BASE_URL}/api/playlists/`)
+    const response = await fetch(`${API_BASE_URL}/api/playlists/`, {
+      headers: getAuthHeaders()
+    })
     return response.json()
   },
 
   getPlaylist: async (id: number) => {
-    const response = await fetch(`${API_BASE_URL}/api/playlists/${id}`)
+    const response = await fetch(`${API_BASE_URL}/api/playlists/${id}`, {
+      headers: getAuthHeaders()
+    })
     return response.json()
   },
 
   getPlaylistSongs: async (id: number) => {
-    const response = await fetch(`${API_BASE_URL}/api/playlists/${id}/songs`)
+    const response = await fetch(`${API_BASE_URL}/api/playlists/${id}/songs`, {
+      headers: getAuthHeaders()
+    })
     return response.json()
   },
 
   addSongToPlaylist: async (playlistId: number, song: any) => {
     const response = await fetch(`${API_BASE_URL}/api/playlists/${playlistId}/songs`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify(song)
     })
     return response.json()
@@ -158,7 +190,8 @@ export const api = {
 
   deletePlaylist: async (id: number) => {
     const response = await fetch(`${API_BASE_URL}/api/playlists/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: getAuthHeaders()
     })
     return response.json()
   },
@@ -167,7 +200,7 @@ export const api = {
   mergeAudio: async (audioUrls: string[], gap: number = 5) => {
     const response = await fetch(`${API_BASE_URL}/api/media/audio/merge`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({ audio_urls: audioUrls, gap })
     })
     return response.json()
@@ -176,7 +209,7 @@ export const api = {
   generateVideo: async (audioPath: string, imagePath: string, songList: string[], showSongList: boolean = true) => {
     const response = await fetch(`${API_BASE_URL}/api/media/video/generate`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({
         audio_path: audioPath,
         image_path: imagePath,
@@ -190,7 +223,7 @@ export const api = {
   generateImage: async (prompt: string, mood: string) => {
     const response = await fetch(`${API_BASE_URL}/api/media/image/generate`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({ prompt, mood, song_list: [], show_song_list: false })
     })
     return response.json()
@@ -202,6 +235,7 @@ export const api = {
 
     const response = await fetch(`${API_BASE_URL}/api/media/image/upload`, {
       method: 'POST',
+      headers: getAuthHeaders(),
       body: formData
     })
     return response.json()
@@ -211,7 +245,7 @@ export const api = {
   uploadToYouTube: async (videoPath: string, title: string, description: string, tags: string[]) => {
     const response = await fetch(`${API_BASE_URL}/api/social/youtube/upload`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({
         video_path: videoPath,
         title,
@@ -226,7 +260,7 @@ export const api = {
   uploadToTikTok: async (videoPath: string, caption: string, hashtags: string[]) => {
     const response = await fetch(`${API_BASE_URL}/api/social/tiktok/upload`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({
         video_path: videoPath,
         caption,
@@ -240,20 +274,23 @@ export const api = {
   storeApiKey: async (service: string, apiKey: string) => {
     const response = await fetch(`${API_BASE_URL}/api/settings/api-keys`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
       body: JSON.stringify({ service, api_key: apiKey })
     })
     return response.json()
   },
 
   getApiKeys: async () => {
-    const response = await fetch(`${API_BASE_URL}/api/settings/api-keys`)
+    const response = await fetch(`${API_BASE_URL}/api/settings/api-keys`, {
+      headers: getAuthHeaders()
+    })
     return response.json()
   },
 
   deleteApiKey: async (service: string) => {
     const response = await fetch(`${API_BASE_URL}/api/settings/api-keys/${service}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: getAuthHeaders()
     })
     return response.json()
   }

@@ -4,8 +4,11 @@ from typing import List
 from app.models.database import get_db
 from app.models.playlist import Playlist
 from app.models.song import Song
+from app.models.user import User
 from app.schemas.playlist import PlaylistCreate, PlaylistResponse, PlaylistUpdate, SongInput
 from app.schemas.song import SongCreate, SongResponse
+from app.routers.auth import get_current_user
+from sqlalchemy.orm import Session as DBSession
 import logging
 import os
 import asyncio
@@ -20,10 +23,11 @@ router = APIRouter(prefix="/api/playlists", tags=["playlists"])
 async def create_playlist(
     playlist: PlaylistCreate,
     cover_image: UploadFile = None,
-    user_id: int = 1,  # TODO: Get from auth
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Create a new playlist with optional songs and cover image"""
+    user_id = current_user.id
 
     # Check special genres
     from app.config import SPECIAL_GENRES
@@ -111,10 +115,11 @@ async def create_playlist(
 
 @router.get("/", response_model=List[PlaylistResponse])
 async def get_playlists(
-    user_id: int = 1,  # TODO: Get from auth
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get all user playlists"""
+    user_id = current_user.id
 
     playlists = db.query(Playlist).filter(Playlist.user_id == user_id).all()
 
