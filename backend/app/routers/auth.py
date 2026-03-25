@@ -235,9 +235,16 @@ async def login_facebook(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
 
 @router.post("/oauth/github", response_model=Token)
 async def login_github(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
-    """Login or register with GitHub OAuth"""
+    """Login or register with GitHub OAuth using access token"""
+    access_token = oauth_data.access_token or oauth_data.credential
+    if not access_token:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="GitHub access token is required"
+        )
+    
     # Get user info from GitHub
-    user_info = await get_github_user_info(oauth_data.access_token)
+    user_info = await get_github_user_info(access_token)
     
     github_id = str(user_info.get("id"))
     email = user_info.get("email")
@@ -246,7 +253,7 @@ async def login_github(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
     
     # GitHub may not return email in user info, fetch from emails endpoint
     if not email:
-        email = await get_github_user_email(oauth_data.access_token)
+        email = await get_github_user_email(access_token)
     
     # Check if user exists
     user = get_user_by_oauth(db, "github", github_id)
@@ -257,6 +264,8 @@ async def login_github(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
         if user:
             # Link GitHub account
             user.github_id = github_id
+            if avatar_url and not user.avatar_url:
+                user.avatar_url = avatar_url
             db.commit()
     
     if not user:
@@ -280,6 +289,115 @@ async def login_github(oauth_data: OAuthLogin, db: Session = Depends(get_db)):
         access_token=access_token,
         user=UserResponse.model_validate(user)
     )
+
+
+@router.get("/github")
+async def github_auth_redirect():
+    """Redirect to GitHub OAuth authorization page"""
+    from app.config import settings
+    from fastapi.responses import RedirectResponse
+    
+    github_client_id = settings.GITHUB_CLIENT_ID
+    if not github_client_id:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="GitHub OAuth not configured"
+        )
+    
+    # Backend callback URL - use the API URL (same host as this backend)
+    # For local: http://localhost:8899/api/auth/github/callback
+    # For production: https://moodvibe-backend.onrender.com/api/auth/github/callback
+    import os
+    api_url = os.environ.get("API_URL", "http://localhost:8899")
+    redirect_uri = f"{api_url}/api/auth/github/callback"
+    
+    scope = "read:user user:email"
+    
+    github_auth_url = (
+        f"https://github.com/login/oauth/authorize"
+        f"?client_id={github_client_id}"
+        f"&redirect_uri={redirect_uri}"
+        f"&scope={scope}"
+    )
+    
+    return RedirectResponse(url=github_auth_url)
+
+
+@router.get("/github/callback")
+async def github_auth_callback(code: str, db: Session = Depends(get_db)):
+    """Handle GitHub OAuth callback"""
+    import httpx
+    from app.config import settings
+    from fastapi.responses import RedirectResponse
+    
+    # Exchange code for access token
+    async with httpx.AsyncClient() as client:
+        token_response = await client.post(
+            "https://github.com/login/oauth/access_token",
+            json={
+                "client_id": settings.GITHUB_CLIENT_ID,
+                "client_secret": settings.GITHUB_CLIENT_SECRET,
+                "code": code
+            },
+            headers={"Accept": "application/json"}
+        )
+        
+        if token_response.status_code != 200:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Failed to exchange GitHub code"
+            )
+        
+        token_data = token_response.json()
+        access_token = token_data.get("access_token")
+        
+        if not access_token:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="No access token from GitHub"
+            )
+    
+    # Get user info
+    user_info = await get_github_user_info(access_token)
+    
+    github_id = str(user_info.get("id"))
+    email = user_info.get("email")
+    name = user_info.get("name") or user_info.get("login")
+    avatar_url = user_info.get("avatar_url")
+    
+    # Get email if not provided
+    if not email:
+        email = await get_github_user_email(access_token)
+    
+    # Check/create user
+    user = get_user_by_oauth(db, "github", github_id)
+    
+    if not user and email:
+        user = get_user_by_email(db, email)
+        if user:
+            user.github_id = github_id
+            if avatar_url and not user.avatar_url:
+                user.avatar_url = avatar_url
+            db.commit()
+    
+    if not user:
+        user = create_user(
+            db=db,
+            email=email,
+            name=name,
+            github_id=github_id,
+            avatar_url=avatar_url
+        )
+    
+    user.last_login = datetime.utcnow()
+    db.commit()
+    
+    # Create JWT token
+    jwt_token = create_access_token(data={"sub": str(user.id)})
+    
+    # Redirect to frontend with token
+    redirect_url = f"{settings.FRONTEND_URL}/login/callback?token={jwt_token}"
+    return RedirectResponse(url=redirect_url)
 
 
 @router.get("/me", response_model=UserResponse)

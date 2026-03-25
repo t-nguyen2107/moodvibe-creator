@@ -63,8 +63,8 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_SECRET: Optional[str] = None
     FACEBOOK_APP_ID: Optional[str] = None
     FACEBOOK_APP_SECRET: Optional[str] = None
-    GITHUB_CLIENT_ID: Optional[str] = None
-    GITHUB_CLIENT_SECRET: Optional[str] = None
+    GITHUB_CLIENT_ID: Optional[str] = "Ov23lifenXlVZZLMix7S"
+    GITHUB_CLIENT_SECRET: Optional[str] = "2aaec601192099806d81dfe60e5e3d5bfdeb53bd"
 
     class Config:
         env_file = ".env"

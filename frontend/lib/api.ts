@@ -79,6 +79,11 @@ export const api = {
     return response.json()
   },
 
+  getGithubAuthUrl: async () => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/github`)
+    return response.url
+  },
+
   logout: async () => {
     const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
       method: 'POST'

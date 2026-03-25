@@ -76,7 +76,8 @@ export default function RegisterPage() {
   }
 
   const handleGithubLogin = () => {
-    alert('GitHub OAuth - Coming soon!')
+    // Redirect to backend GitHub OAuth endpoint
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8899'}/api/auth/github`
   }
 
   return (
