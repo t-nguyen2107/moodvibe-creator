@@ -62,8 +62,13 @@ export default function LoginPage() {
   }
 
   const handleGithubLogin = () => {
-    // Redirect to backend GitHub OAuth endpoint
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8899'}/api/auth/github`
+    // Use backend URL for GitHub OAuth
+    // In production: https://moodvibe-backend.onrender.com
+    // In development: http://localhost:8899
+    const backendUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://moodvibe-backend.onrender.com'
+      : 'http://localhost:8899'
+    window.location.href = `${backendUrl}/api/auth/github`
   }
 
   return (
