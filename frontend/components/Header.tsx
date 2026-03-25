@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { MusicalNoteIcon, CogIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { MusicalNoteIcon, CogIcon, Bars3Icon, XMarkIcon, UserIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 import { NavLink } from './NavLink'
 import type { Locale } from '@/lib/i18n'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useAuthStore } from '@/lib/auth'
 
 const LANGUAGES: Record<Locale, { label: string; shorthand: string }> = {
   en: { label: 'English', shorthand: 'EN' },
@@ -18,6 +19,20 @@ export function Header() {
   const pathname = usePathname()
   const locale = useLocale()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
+  const userMenuRef = useRef<HTMLDivElement>(null)
+  const { user, isAuthenticated, logout } = useAuthStore()
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const switchLocale = (newLocale: Locale) => {
     const segments = pathname.split('/')
@@ -95,6 +110,72 @@ export function Header() {
                 </option>
               ))}
             </select>
+
+            {/* User Menu */}
+            {isAuthenticated && user ? (
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                >
+                  {user.avatar_url ? (
+                    <img
+                      src={user.avatar_url}
+                      alt={user.name || 'User'}
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+                      <UserIcon className="w-5 h-5 text-white" />
+                    </div>
+                  )}
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 hidden xl:block">
+                    {user.name || 'User'}
+                  </span>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isUserMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50">
+                    <NavLink
+                      href="/profile"
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      <UserIcon className="w-4 h-4" />
+                      Profile
+                    </NavLink>
+                    <NavLink
+                      href="/settings"
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      <CogIcon className="w-4 h-4" />
+                      Settings
+                    </NavLink>
+                    <hr className="my-2 border-slate-200 dark:border-slate-700" />
+                    <button
+                      onClick={() => {
+                        setIsUserMenuOpen(false)
+                        logout()
+                        router.push(`/${locale}`)
+                      }}
+                      className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      <ArrowRightOnRectangleIcon className="w-4 h-4" />
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <NavLink
+                href="/login"
+                className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium transition-colors"
+              >
+                Sign In
+              </NavLink>
+            )}
           </div>
 
           {/* Mobile/Tablet Navigation */}
